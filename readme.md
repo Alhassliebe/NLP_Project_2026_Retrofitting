@@ -295,7 +295,7 @@ Retrofitted vectors are automatically saved to `models/` after each run.
 
 | Benchmark | Baseline ρ | Retrofitted ρ | Δ |
 |---|---|---|---|
-| RG-65-fr | 0.8135 | 0.791 | -0.0196 |
+| RG-65-fr | 0.8135 | 0.7886 | -0.0249 |
 
 ### Sentiment Analysis (SST-2, GloVe 300d + WN_all)
 
