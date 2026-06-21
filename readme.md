@@ -136,7 +136,7 @@ retrofitting/
 
 ```bash
 git clone https://github.com/Alhassliebe/NLP_Project_2026_Retrofitting 
-cd NLP_Project_RETROFITTING
+cd NLP_Project_2026_Retrofitting
 
 python3 -m venv venv
 
