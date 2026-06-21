@@ -205,7 +205,7 @@ python download_benchmarks.py
 Run each notebook from the **project root** (not from inside `notebooks/`). Run them one at a time in a fresh terminal:
 
 ```bash
-cd NLP_Project_RETROFITTING
+cd NLP_Project_2026_Retrofitting
 
 source venv/bin/activate        # macOS / Linux
 # venv\Scripts\activate         # Windows
