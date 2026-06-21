@@ -69,28 +69,26 @@ retrofitting/
 │                              #   - vocab_overlap()
 ├── notebooks/
 │   ├── 01_retrofit_prototype.py        # Alena: prototype on 212-word sample
-│   ├── 02_test_retrofit.py             # Alena: sanity check production vs prototype
-│   ├── 03_diagnostics.py               # Alena: centroid drift & edge composition
-│   ├── 04_eval_baseline.py             # Sharon: baseline GloVe evaluation
-│   ├── 05_retrofit_full_vocab.py       # Alena: full GloVe 300d pipeline, saves .kv
-│   ├── 06_oov_comparison.py            # Alena: intersection vs filtering vs mean_synonyms
-│   ├── 07_convergence_analysis.py      # Alena: n_iter sensitivity
+│   ├── 02_eval_baseline.py             # Sharon: baseline GloVe evaluation
+│   ├── 03_retrofit_full_vocab.py       # Alena: full GloVe 300d pipeline, saves .kv
+│   ├── 04_oov_comparison.py            # Alena: intersection vs filtering vs mean_synonyms
+│   ├── 05_convergence_analysis.py      # Alena: n_iter sensitivity
 │   │                                   #   → figures/convergence.png
-│   ├── 08_dimensionality_experiment.py # Alena: 50/100/200/300d comparison
+│   ├── 06_dimensionality_experiment.py # Alena: 50/100/200/300d comparison
 │   │                                   #   → figures/dimensionality.png
 │   │                                   #   → figures/dimensionality_delta.png
 │   │
-│   ├── 09_alpha_beta_grid.py           # Alena: hyperparameter sensitivity (α, β)
+│   ├── 07_alpha_beta_grid.py           # Alena: hyperparameter sensitivity (α, β)
 │   │                                   #   - α sweep (β=inv_degree, 10 steps)
 │   │                                   #   - β sweep (α=1.0, 10 steps)
 │   │                                   #   - 2D joint grid (10×10 = 100 runs)
 │   │                                   #   → figures/alpha_beta_curves.png
 │   │                                   #   → figures/alpha_beta_heatmap.png
-│   ├── 10_french_experiment.py         # Botakoz: fastText-fr + Wolf + RG-65-fr
-│   ├── 11_sentiment_analysis.py        # Sharon: SST-2 baseline vs retrofitted
-│   ├── 12_qualitative_analysis.py      # Sharon: top-15 pairs improved/worsened
-│   ├── 13_optimization_benchmark.py    # Alena: runtime profiling of retrofit loop
-│   └── 14_convergence_prototype.py     # Alena: n_iter convergence on prototype sample
+│   ├── 08_french_experiment.py         # Botakoz: fastText-fr + Wolf + RG-65-fr
+│   ├── 09_sentiment_analysis.py        # Sharon: SST-2 baseline vs retrofitted
+│   ├── 10_qualitative_analysis.py      # Sharon: top-15 pairs improved/worsened
+│   ├── 11_optimization_benchmark.py    # Alena: runtime profiling of retrofit loop
+│   └── 12_convergence_prototype.py     # Alena: n_iter convergence on prototype sample
 ├── datasets/                   # Benchmark datasets
 │   ├── rg65_en.csv             # RG-65 English
 │   ├── rg65_french.txt         # RG-65 French
@@ -98,28 +96,28 @@ retrofitting/
 │   └── wordsim353crowd.csv     # WordSim-353
 ├── models/                                # Pre-trained embeddings (large files, not in git)
 │   ├── glove.6B.{50,100,200,300}d.txt
-│   ├── glove_300d_retrofitted_wn_all.kv   # saved by notebook 05
+│   ├── glove_300d_retrofitted_wn_all.kv   # saved by notebook 03
 │   └── wn_all_lexicon.pkl                 # cached by preprocessing
 ├── figures/                       # Generated plots
-│   ├── alpha_beta_curves.png      # sweep line plots (notebook 09)
-│   ├── alpha_beta_heatmap.png     # 2D grid heatmaps (notebook 09)
-│   ├── convergence.png            # n_iter convergence (notebook 07)
-│   ├── dimensionality.png         # Spearman ρ by embedding size (notebook 08)
-│   └── dimensionality_delta.png   # Δ Spearman ρ by embedding size (notebook 08)
+│   ├── alpha_beta_curves.png      # sweep line plots (notebook 07)
+│   ├── alpha_beta_heatmap.png     # 2D grid heatmaps (notebook 07)
+│   ├── convergence.png            # n_iter convergence (notebook 05)
+│   ├── dimensionality.png         # Spearman ρ by embedding size (notebook 06)
+│   └── dimensionality_delta.png   # Δ Spearman ρ by embedding size (notebook 06)
 ├── results/                             # CSV outputs from experiments
 │   ├── alpha_beta_grid.csv              # earlier grid search results
-│   ├── alpha_sweep.csv                  # α sweep (notebook 09)
-│   ├── beta_sweep.csv                   # β sweep (notebook 09)
-│   ├── grid2d.csv                       # 2D joint grid (notebook 09)
-│   ├── convergence_analysis.csv         # notebook 07
-│   ├── convergence_prototype.csv        # notebook 14
-│   ├── dimensionality_experiment.csv    # notebook 08
-│   ├── oov_comparison.csv               # notebook 06
-│   ├── optimization_benchmark.csv       # notebook 13
-│   ├── qualitative_full.csv             # notebook 12
-│   ├── qualitative_top_decrease.csv     # notebook 12
-│   ├── qualitative_top_increase.csv     # notebook 12
-│   └── sentiment_analysis.csv           # notebook 11
+│   ├── alpha_sweep.csv                  # α sweep (notebook 07)
+│   ├── beta_sweep.csv                   # β sweep (notebook 07)
+│   ├── grid2d.csv                       # 2D joint grid (notebook 07)
+│   ├── convergence_analysis.csv         # notebook 05
+│   ├── convergence_prototype.csv        # notebook 12
+│   ├── dimensionality_experiment.csv    # notebook 06
+│   ├── oov_comparison.csv               # notebook 04
+│   ├── optimization_benchmark.csv       # notebook 12
+│   ├── qualitative_full.csv             # notebook 10
+│   ├── qualitative_top_decrease.csv     # notebook 10
+│   ├── qualitative_top_increase.csv     # notebook 10
+│   └── sentiment_analysis.csv           # notebook 09
 ├── main.py                    # CLI entry point
 ├── download_benchmarks.py     # Auto-download RG-65, SimLex-999
 ├── fix_wordsim.py             # Creates wordsim353_similarity.csv if missing
@@ -169,8 +167,8 @@ Expand-Archive glove.6B.zip -DestinationPath models/
 Remove-Item glove.6B.zip
 ```
 
-Run notebooks in order — later ones depend on outputs from earlier ones (e.g. notebook 05 must run before 12).
-**French embeddings — place in `models/`** (required for notebook 10 only, ~4 GB):
+Run notebooks in order — later ones depend on outputs from earlier ones (e.g. notebook 03 must run before 10).
+**French embeddings — place in `models/`** (required for notebook 08 only, ~4 GB):
 ```bash
 # macOS / Linux
 curl -L -o models/cc.fr.300.bin.gz https://dl.fbaipublicfiles.com/fasttext/vectors-crawl/cc.fr.300.bin.gz
@@ -182,7 +180,7 @@ Invoke-WebRequest -Uri https://dl.fbaipublicfiles.com/fasttext/vectors-crawl/cc.
 # then decompress with 7-Zip or another tool
 ```
 
-**French WordNet — place in `datasets/`** (required for notebook 10 only):
+**French WordNet — place in `datasets/`** (required for notebook 08 only):
 ```bash
 # macOS / Linux
 [ -f datasets/wolf-1.0b4.xml ] || (curl -L -o datasets/wolf-1.0b4.xml.bz2 https://almanach.inria.fr/software_and_resources/downloads/wolf-1.0b4.xml.bz2 && bunzip2 datasets/wolf-1.0b4.xml.bz2) 
@@ -205,62 +203,47 @@ python download_benchmarks.py
 Run each notebook from the **project root** (not from inside `notebooks/`). Run them one at a time in a fresh terminal:
 
 ```bash
-cd NLP_Project_2026_Retrofitting
-
-source venv/bin/activate        # macOS / Linux
-# venv\Scripts\activate         # Windows
-
-python notebooks/01_retrofit_prototype.py
-```
-
-```bash
 # Prototype on 212-word sample
 python notebooks/01_retrofit_prototype.py
 
-# Sanity check: production vs prototype
-python notebooks/02_test_retrofit.py
-
-# Centroid drift & lexicon diagnostics
-python notebooks/03_diagnostics.py
-
 # Baseline evaluation (no retrofitting)
-python notebooks/04_eval_baseline.py
+python notebooks/02_eval_baseline.py
 
 # Full GloVe 300d retrofit — saves retrofitted vectors to models/
-python notebooks/05_retrofit_full_vocab.py
+python notebooks/03_retrofit_full_vocab.py
 
 # OOV strategy comparison
-python notebooks/06_oov_comparison.py
+python notebooks/04_oov_comparison.py
 
 # n_iter sensitivity → figures/convergence.png
-python notebooks/07_convergence_analysis.py
+python notebooks/05_convergence_analysis.py
 
 # Dimensionality experiment (50/100/200/300d) → figures/dimensionality*.png
-python notebooks/08_dimensionality_experiment.py
+python notebooks/06_dimensionality_experiment.py
 
 # Hyperparameter sensitivity (α/β sweeps + 2D grid) → figures/alpha_beta_*.png
-python notebooks/09_alpha_beta_grid.py
+python notebooks/07_alpha_beta_grid.py
 
 # French experiment (fastText-fr + Wolf)
-python notebooks/10_french_experiment.py
+python notebooks/08_french_experiment.py
 
 # Sentiment analysis (SST-2)
-python notebooks/11_sentiment_analysis.py
+python notebooks/09_sentiment_analysis.py
 
 # Qualitative analysis — requires models/glove_300d_retrofitted_wn_all.kv
-python notebooks/12_qualitative_analysis.py
+python notebooks/10_qualitative_analysis.py
 
 # Runtime profiling of retrofit loop
-python notebooks/13_optimization_benchmark.py
+python notebooks/11_optimization_benchmark.py
 
 # Convergence on prototype sample
-python notebooks/14_convergence_prototype.py
+python notebooks/12_convergence_prototype.py
 ```
 
 **Important notes:**
-- Notebooks 05 and 09 each take 30–60 minutes (full GloVe 300d).
-- Notebook 12 requires notebook 05 to have run first (it loads the saved retrofitted vectors from `models/`).
-- Notebooks 10, 11, 12 require `cc.fr.300.bin` and `wolf-1.0b4.xml`. All other notebooks run on English data only and have no additional dependencies beyond `models/glove.6B.*.txt`.
+- Notebooks 03 and 07 each take 30–60 minutes (full GloVe 300d).
+- Notebook 10 requires notebook 03 to have run first (it loads the saved retrofitted vectors from `models/`).
+- Notebooks 08, 09, 10 require `cc.fr.300.bin` and `wolf-1.0b4.xml`. All other notebooks run on English data only and have no additional dependencies beyond `models/glove.6B.*.txt`.
 - SST-2 data for notebook 11 is downloaded automatically on first run via the HuggingFace `datasets` library.
 
 ### 4. Run the pipeline
