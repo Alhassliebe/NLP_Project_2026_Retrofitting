@@ -31,12 +31,15 @@ Note: Word2Vec Google News was excluded due to memory constraints (8 GB RAM).
 | FrameNet | via NLTK (auto-downloaded) |
 
 ### Benchmarks (→ `datasets/`)
+**Download automatically**
 ```bash
-# Download automatically
-# downloads RG-65-en, WordSim-353, SimLex-999 python download_benchmarks.py   
-# Download manually
+# downloads RG-65-en, SimLex-999
+python download_benchmarks.py
+``` 
+**Download manually**
+```bash
 # RG-65 French: included in the repository → datasets/rg65_french.txt
-# WordSim-353:  curl -L -o datasets/wordsim353crowd.csv "https://raw.githubusercontent.com/mfaruqui/eval-word-vectors/master/data/word-sim/EN-WS-353-ALL.txt"
+# WordSim-353:  included in the repository → datasets/wordsim353_similarity.csv [(source)](https://www.kaggle.com/datasets/julianschelb/wordsim353-crowd) 
 # SST-2:        downloaded automatically via HuggingFace datasets library
 ```
 
