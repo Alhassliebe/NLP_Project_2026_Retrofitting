@@ -28,18 +28,6 @@ try:
 except Exception as e:
     print(f"  RG-65 download failed: {e}")
 
-# WordSim-353 — Agirre et al. 2009, full set from mfaruqui/eval-word-vectors
-WS353_URL = "https://raw.githubusercontent.com/mfaruqui/eval-word-vectors/master/data/word-sim/EN-WS-353-ALL.txt"
-try:
-    print(f"\nDownloading WordSim-353...")
-    text = fetch_text(WS353_URL)
-    rows = [tuple(line.split("\t")) for line in text.strip().splitlines() if line.strip()]
-    rows = [(r[0], r[1], float(r[2])) for r in rows]
-    save_pairs_csv(rows, "datasets/wordsim353_similarity.csv")
-    print(f"  saved datasets/wordsim353_similarity.csv ({len(rows)} pairs)")
-except Exception as e:
-    print(f"  WordSim-353 failed: {e}")
-
 # SimLex-999 — Hill et al. 2015, functional similarity (separate from relatedness)
 SIMLEX_URL = "https://fh295.github.io/SimLex-999.zip"
 try:
