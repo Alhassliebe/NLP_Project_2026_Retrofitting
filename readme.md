@@ -292,7 +292,7 @@ Retrofitted vectors are automatically saved to `models/` after each run.
 |---|---|---|---|
 | RG-65 | 0.766 | 0.843 | +0.077 |
 | SimLex-999 | 0.371 | 0.461 | +0.091 |
-| WordSim-353 | 0.608 | 0.623 | +0.015 |
+| WordSim-353 | 0.543 | 0.606 | +0.063 |
 
 ### French (fastText-fr + Wolf, n_iter=10)
 
